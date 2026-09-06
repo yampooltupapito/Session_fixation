@@ -40,6 +40,11 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
             <!-- Solo el modulo de criptografia (BCrypt), NO spring-security-web,
                  para que no se active ninguna proteccion automatica de sesiones
                  y el comportamiento de Session Fixation sea 100% explicito en el codigo. -->
