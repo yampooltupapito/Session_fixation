@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Productos - Botica San Jose</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="brand">&#10010; Botica San Jose</span>
+        <div class="nav-links">
+            <a th:href="@{/dashboard}">Panel</a>
+            <a th:href="@{/productos}">Productos</a>
+            <a th:href="@{/logout}">Salir</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Inventario</h1>
+
+        <div class="form-card">
+            <form method="post" th:action="@{/productos/nuevo}">
+                <div class="form-row">
+                    <input type="text" name="nombre" placeholder="Nombre del producto" required>
+                    <input type="text" name="categoria" placeholder="Categoria" required>
+                    <input type="number" step="0.10" name="precio" placeholder="Precio (S/)" required>
+                    <input type="number" name="stock" placeholder="Stock" required>
+                    <button type="submit">Agregar</button>
+                </div>
+            </form>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="p : ${productos}">
+                    <td th:text="${p.nombre}"></td>
+                    <td th:text="${p.categoria}"></td>
+                    <td th:text="'S/ ' + ${p.precio}"></td>
+                    <td th:text="${p.stock}"></td>
+                    <td><a th:href="@{/productos/eliminar/{id}(id=${p.id})}">Eliminar</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

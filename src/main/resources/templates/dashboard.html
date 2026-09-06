@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel - Botica San Jose</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <nav class="navbar">
+        <span class="brand">&#10010; Botica San Jose</span>
+        <div class="nav-links">
+            <a th:href="@{/dashboard}">Panel</a>
+            <a th:href="@{/productos}">Productos</a>
+            <a th:href="@{/logout}">Salir</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <h1>Bienvenido, <span th:text="${nombreCompleto}"></span></h1>
+        <span class="rol-badge" th:text="${rol}"></span>
+
+        <div class="cards">
+            <div class="stat-card">
+                <span class="stat-number" th:text="${totalProductos}"></span>
+                <span class="stat-label">Productos registrados</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number" th:text="${totalUsuarios}"></span>
+                <span class="stat-label">Usuarios del sistema</span>
+            </div>
+        </div>
+
+        <div class="session-info">
+            <p><b>ID de sesion actual:</b> <code th:text="${sessionId}"></code></p>
+            <p class="note">Este identificador se muestra unicamente con fines academicos, para comparar su valor antes y despues del login en la demo de Session Fixation.</p>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Botica San Jose - Iniciar sesion</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body class="login-body">
+    <div class="login-card">
+        <div class="login-logo">&#10010;</div>
+        <h1>Botica San Jose</h1>
+        <p class="subtitle">Sistema de gestion interna</p>
+
+        <form method="post" th:action="@{/login}">
+            <label>Usuario</label>
+            <input type="text" name="username" required autofocus>
+
+            <label>Contrasena</label>
+            <input type="password" name="password" required>
+
+            <button type="submit">Ingresar</button>
+        </form>
+
+        <p class="error" th:if="${error}" th:text="${error}"></p>
+
+
+    </div>
+</body>
+</html>
